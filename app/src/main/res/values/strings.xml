@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">知心APP</string>
+    <string name="news">网易新闻</string>
+    <string name="weather">欧酷天气</string>
+    <string name="tuling">图灵机器人</string>
+    <string name="aboutme">作者详情</string>
+    <string name="author">
+        14软件B班——杜敏\n\n
+
+        邮箱: 2712220318@qq.com\n\n
+
+        GitHub: https://github.com/ZSCDumin\n\n
+
+        有问题欢迎联系我！\n\n
+
+        @电子科技大学中山学院版权所有
+    </string>
+    <string name="action_settings">设置</string>
+    <string name="service_on">ON</string>
+    <string name="service_off">OFF</string>
+    <string name="auto_update_service">自动更新天气服务</string>
+    <string name="auto_located">自动定位当前城市</string>
+</resources>
