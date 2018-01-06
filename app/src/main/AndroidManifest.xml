@@ -38,11 +38,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.NewsActivity"/>
-        <activity android:name=".activity.TulingActivity"/>
+        <activity android:name=".activity.MainActivity"/>
         <activity android:name=".activity.WeatherMainActivity"/>
         <activity android:name=".activity.WeatherActivity"/>
         <activity android:name=".activity.LocationActivity"/>
-        <activity android:name=".activity.MainActivity"/>
+        <activity android:name=".activity.TulingActivity"/>
         <activity android:name=".activity.UserRegisterActivity"/>
 
         <service

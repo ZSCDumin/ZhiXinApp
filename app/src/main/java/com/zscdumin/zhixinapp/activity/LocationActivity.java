@@ -18,10 +18,13 @@ import com.zscdumin.zhixinapp.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocationActivity extends AppCompatActivity {
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
+public class LocationActivity extends AppCompatActivity {
+    @BindView(R.id.position_text_view)
+    TextView positionText;
     public LocationClient mLocationClient;
-    private TextView positionText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +32,7 @@ public class LocationActivity extends AppCompatActivity {
         mLocationClient = new LocationClient(getApplicationContext());
         mLocationClient.registerLocationListener(new MyLocationListener());//注册定位监听器，当获取到位置信息时，会回调这个监听器
         setContentView(R.layout.activity_location);
-        positionText = (TextView) findViewById(R.id.position_text_view);
+        ButterKnife.bind(this);
         List<String> permissionList = new ArrayList<>();//权限列表，记录未允许的权限
 
         /**

@@ -13,11 +13,15 @@ import com.zscdumin.zhixinapp.R;
 import com.zscdumin.zhixinapp.fragment.MeFragment;
 import com.zscdumin.zhixinapp.fragment.ParentFragment;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-    private DrawerLayout drawer;
-    private NavigationView nav_layout;
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawer;
+    @BindView(R.id.nav_layout)
+    NavigationView nav_layout;
     private final String TAG = "MainActivity";
 
     //Fragment
@@ -33,23 +37,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportActionBar().hide();
         }
         setContentView(R.layout.fragment_main);
-
+        ButterKnife.bind(this);
         transaction = getSupportFragmentManager().beginTransaction();
         //初始是新闻页面
         newsListFragment = new ParentFragment();
         transaction.add(R.id.fl_content, newsListFragment, "newsListFragment").commit();
-
-        initView();
         nav_layout.setNavigationItemSelectedListener(this);
-
     }
-
-
-    private void initView() {
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        nav_layout = (NavigationView) findViewById(R.id.nav_layout);
-    }
-
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {

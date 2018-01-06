@@ -9,10 +9,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:background="@drawable/chatto_bg_focused"
+        android:background="@drawable/chatto_bg_normal"
         android:gravity="center"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
         android:text="提问"
         android:textColor="#ff0173"
         android:textSize="15dp"/>
@@ -23,21 +21,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/tv_ask"
-        android:layout_marginTop="10dp"
         android:background="@drawable/chatfrom_bg_normal"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:paddingRight="10dp"
-        >
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:gravity="center"
             android:text="回答"
-            android:textColor="#e100ff"
+            android:textColor="#0026fc"
             android:textSize="15dp"/>
 
         <ImageView
