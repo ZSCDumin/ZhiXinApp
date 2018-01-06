@@ -1,18 +1,20 @@
-# ZhiXinApp
-1.0 版本
-# 包含模块：
-#  ------新闻
-# ------天气
-# ------图灵机器人
-# 应用截图：
-![cmd-markdown-logo]（https://github.com/ZSCDumin/ZhiXinApp/blob/master/screenshoot/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180106125509.jpg）
-![cmd-markdown-logo]
-（https://github.com/ZSCDumin/ZhiXinApp/blob/master/screenshoot/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180106125518.jpg）
-![cmd-markdown-logo]
-https://github.com/ZSCDumin/ZhiXinApp/blob/master/screenshoot/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180106125522.png
-![cmd-markdown-logo]
-https://github.com/ZSCDumin/ZhiXinApp/blob/master/screenshoot/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180106125526.jpg
-![cmd-markdown-logo]
-https://github.com/ZSCDumin/ZhiXinApp/blob/master/screenshoot/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180106125531.jpg
-![cmd-markdown-logo]
-https://github.com/ZSCDumin/ZhiXinApp/blob/master/screenshoot/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180106125535.jpg
+1. ZhiXinApp(知心) 1.0版本
+=
+>+ 电子科技大学中山学院-杜敏@版权所有
+>+ 作者邮箱：2712220318@qq.com
+
+2. 项目包含模块
+=
+> 
+  - 登录注册 (基于Bmob后端云数据库)
+  - 新闻 (数据源于网易新闻）
+  - 天气（仿造欧酷天气）
+  - 图灵机器人 (基于图灵机器人和讯飞语音识别技术）
+3. 应用截图
+=
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/1.jpg)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/2.jpg)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/3.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/4.jpg)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/5.jpg)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/6.jpg)
