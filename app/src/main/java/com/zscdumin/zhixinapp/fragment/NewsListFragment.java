@@ -254,10 +254,7 @@ public class NewsListFragment extends Fragment implements SwipeRefreshLayout.OnR
             } else {
                 NewsListFragment.this.newsList = newsList;
                 newsListAdapter.setData(newsList);
-//                recycle_news.setLayoutManager(layoutManager);
-//                recycle_news.setAdapter(newsListAdapter);
                 newsListAdapter.notifyDataSetChanged();
-
             }
             sr_refresh.setRefreshing(false);
 
@@ -308,7 +305,6 @@ public class NewsListFragment extends Fragment implements SwipeRefreshLayout.OnR
             if (updateNewsList == null) {
                 Toast.makeText(getContext(), "请求数据失败", Toast.LENGTH_SHORT).show();
             } else {
-//                newsListAdapter.isShowFooter(false);
                 newsListAdapter.setData(NewsListFragment.this.newsList);
             }
         }

@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">知心APP</string>
+    <string name="app_name">知心</string>
     <string name="news">网易新闻</string>
     <string name="weather">欧酷天气</string>
     <string name="tuling">图灵机器人</string>
-    <string name="aboutme">作者详情</string>
+    <string name="aboutme">开发者详情</string>
     <string name="author">
         14软件B班——杜敏\n\n
 

@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 xmlns:tools="http://schemas.android.com/tools"
-                android:id="@+id/activity_main"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -13,7 +12,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <android.support.v4.widget.CircleImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/user_icon"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -22,7 +21,7 @@
             android:src="@drawable/icon"/>
 
         <EditText
-            android:id="@+id/user_account"
+            android:id="@+id/user_account_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#fff"
@@ -35,7 +34,7 @@
             android:background="#000"/>
 
         <EditText
-            android:id="@+id/user_password"
+            android:id="@+id/user_password_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#fff"
@@ -64,9 +63,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
-        android:text="新用户注册"
+        android:layout_margin="25dp"
+        android:text="注册新用户"
         android:textColor="@color/not_pressed"/>
-
 
 </RelativeLayout>

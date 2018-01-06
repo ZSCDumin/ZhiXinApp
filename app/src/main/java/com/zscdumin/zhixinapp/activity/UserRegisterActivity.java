@@ -1,7 +1,9 @@
 package com.zscdumin.zhixinapp.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -16,11 +18,12 @@ import cn.bmob.v3.listener.SaveListener;
 
 public class UserRegisterActivity extends AppCompatActivity {
 
-    @BindView(R.id.user_account)
+    @BindView(R.id.user_account_register)
     EditText userAccount;
-    @BindView(R.id.user_password)
+    @BindView(R.id.user_password_register)
     EditText userPassword;
     @BindView(R.id.user_register)
+    Button userRegister;
 
     private Person person;
 
@@ -49,8 +52,8 @@ public class UserRegisterActivity extends AppCompatActivity {
                     userAccount.setText("");
                     userPassword.setText("");
                     Toast.makeText(UserRegisterActivity.this, "恭喜您,注册成功！", Toast.LENGTH_SHORT).show();
-                    //Intent intent=new Intent(UserRegisterActivity.this,UserLoginActivity.class);
-                    //startActivity(intent);
+                    Intent intent=new Intent(UserRegisterActivity.this,UserLoginActivity.class);
+                    startActivity(intent);
                 }
 
                 @Override
@@ -63,4 +66,5 @@ public class UserRegisterActivity extends AppCompatActivity {
             Toast.makeText(UserRegisterActivity.this, "账号或密码不能为空！", Toast.LENGTH_SHORT).show();
         }
     }
+
 }

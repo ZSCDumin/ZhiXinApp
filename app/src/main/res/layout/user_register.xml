@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.zscdumin.zhixinapp.activity.UserLoginActivity">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:context="com.zscdumin.zhixinapp.activity.UserLoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <android.support.v4.widget.CircleImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/user_icon"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_margin="30dp"
-            android:src="@drawable/icon" />
+            android:src="@drawable/icon"
+            />
 
         <EditText
-            android:id="@+id/user_account"
+            android:id="@+id/user_account_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#fff"
             android:hint="账号"
-            android:padding="12dp" />
+            android:padding="12dp"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="#000" />
+            android:background="#000"/>
 
         <EditText
-            android:id="@+id/user_password"
+            android:id="@+id/user_password_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#fff"
             android:hint="密码"
             android:inputType="textPassword"
             android:maxLength="18"
-            android:padding="12dp" />
+            android:padding="12dp"/>
 
         <Button
-            android:layout_width="match_parent"
             android:id="@+id/user_register"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
@@ -54,6 +54,6 @@
             android:background="@drawable/login_buttton_background"
             android:text="注册"
             android:textColor="#fff"
-            android:textSize="18sp" />
+            android:textSize="18sp"/>
     </LinearLayout>
 </RelativeLayout>

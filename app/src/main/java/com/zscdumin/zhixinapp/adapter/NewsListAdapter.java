@@ -118,7 +118,6 @@ public class NewsListAdapter extends RecyclerView.Adapter {
             tv_desc = (TextView) root.findViewById(R.id.tv_desc);
 
             root.setOnClickListener(this);
-
         }
 
 

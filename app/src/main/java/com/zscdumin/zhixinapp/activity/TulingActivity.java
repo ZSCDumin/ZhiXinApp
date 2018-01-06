@@ -52,7 +52,7 @@ public class TulingActivity extends AppCompatActivity {
         answer.setAdapter(myAdapter);
 
         SpeechUtility.createUtility(this, SpeechConstant.APPID + "=56adade1");
-        compose("你好,欢迎使用图灵机器人!");
+        compose("欢迎使用图灵机器人!");
 
     }
 

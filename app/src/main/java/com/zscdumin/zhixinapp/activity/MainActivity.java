@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //Fragment
     private ParentFragment newsListFragment = null;
     private MeFragment meFragment = null;
-
     private FragmentTransaction transaction;
     private Fragment fragment;
 
@@ -42,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         initView();
         nav_layout.setNavigationItemSelectedListener(this);
+
     }
 
 
@@ -94,11 +94,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 drawer.closeDrawers();
                 break;
             case R.id.nav_tuling:
-                intent =new Intent(this,TulingActivity.class);
+                intent = new Intent(this, TulingActivity.class);
                 startActivity(intent);
                 break;
             case R.id.nav_weather:
-                intent =new Intent(this,WeatherMainActivity.class);
+                intent = new Intent(this, WeatherMainActivity.class);
                 startActivity(intent);
                 break;
         }
