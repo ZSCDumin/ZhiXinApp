@@ -12,11 +12,20 @@
 
 
 # 3. 应用相关截图
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/1.png)
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/2.png)
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/3.png)
+
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/1.jpg)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/2.jpg)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/3.jpg)
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/4.jpg)
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/5.jpg)
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/6.jpg)
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/6.jpg)
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/6.jpg)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/7.jpg)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/8.jpg)
+
+# 4. 觉得赞就打赏我吧
+
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/9.jpg)
+
+# 5. 应用下载地址
+
+>+ https://raw.githubusercontent.com/ZSCDumin/ZhiXinApp/master/app/release/app-release.apk
