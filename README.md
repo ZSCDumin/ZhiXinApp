@@ -28,4 +28,4 @@
 
 # 5. 应用下载地址
 
->+ https://raw.githubusercontent.com/ZSCDumin/ZhiXinApp/master/app/release/app-release.apk
+> https://raw.githubusercontent.com/ZSCDumin/ZhiXinApp/master/app/release/app-release.apk
