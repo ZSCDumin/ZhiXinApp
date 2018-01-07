@@ -12,9 +12,11 @@
 
 
 # 3. 应用相关截图
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/1.jpg)
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/2.jpg)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/1.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/2.png)
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/3.png)
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/4.jpg)
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/5.jpg)
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/6.jpg)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/7.jpg)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/8.png)
