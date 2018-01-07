@@ -52,7 +52,7 @@ public class TulingActivity extends AppCompatActivity {
         myAdapter = new MyAdapter();
         answer.setAdapter(myAdapter);
         SpeechUtility.createUtility(this, SpeechConstant.APPID + "=56adade1");
-        compose("欢迎使用图灵机器人,点击下方的话筒开始对话吧!");
+        compose("主人您好,我是图灵机器人!");
     }
 
 
@@ -76,12 +76,12 @@ public class TulingActivity extends AppCompatActivity {
             public void onResult(RecognizerResult recognizerResult, boolean b) {
                 String result = recognizerResult.getResultString();
                 String spreak_word = pareData(result);
-                sbuff.append(spreak_word + "  ");
+                sbuff.append(spreak_word);
                 if (b) {
                     askContent = sbuff.toString();//得到最终结果
                     TalkBean askBean = new TalkBean(askContent, -1, true);//初始化提问对象
                     mlist.add(askBean);
-                    answers = "这个问题我们机器要开个会，等商量出来再告诉你";
+                    answers = "这个问题我们机器要开个会,等商量出来再告诉你";
                     new GetMessage().start();
                 }
             }
@@ -189,7 +189,7 @@ public class TulingActivity extends AppCompatActivity {
 
         //2.合成参数设置
         mTts.setParameter(SpeechConstant.VOICE_NAME, "xiaoyan"); //设置发音人
-        mTts.setParameter(SpeechConstant.SPEED, "50");//设置语速
+        mTts.setParameter(SpeechConstant.SPEED, "60");//设置语速
         mTts.setParameter(SpeechConstant.VOLUME, "80");//设置音量，范围 0~100
         mTts.setParameter(SpeechConstant.ENGINE_TYPE, SpeechConstant.TYPE_CLOUD); //设置云端
         mTts.setParameter(SpeechConstant.TTS_AUDIO_PATH, "./sdcard/iflytek.pcm");
@@ -200,7 +200,6 @@ public class TulingActivity extends AppCompatActivity {
 
     private class GetMessage extends Thread {
         public void run() {
-            /*super.start();*/
             Message msg = new Message();
             try {
                 msg.what = 1;
