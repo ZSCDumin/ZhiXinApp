@@ -29,3 +29,7 @@
 # 5. 应用下载地址
 
 > https://raw.githubusercontent.com/ZSCDumin/ZhiXinApp/master/app/release/app-release.apk
+
+# 6. 测试试用账号
+> 账号:18979429542
+> 密码:123
