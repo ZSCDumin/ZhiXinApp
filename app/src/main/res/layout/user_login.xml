@@ -67,4 +67,13 @@
         android:text="注册新用户"
         android:textColor="@color/not_pressed"/>
 
+    <TextView
+        android:id="@+id/face_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="25dp"
+        android:text="刷脸登陆"
+        android:textColor="@color/not_pressed"/>
 </RelativeLayout>

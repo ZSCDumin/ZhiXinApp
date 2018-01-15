@@ -7,8 +7,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.isnc.facesdk.SuperID;
+import com.isnc.facesdk.common.SDKConfig;
 import com.zscdumin.zhixinapp.R;
 import com.zscdumin.zhixinapp.bean.Person;
 
@@ -23,6 +26,8 @@ import cn.bmob.v3.listener.FindListener;
 
 public class UserLoginActivity extends AppCompatActivity {
 
+    @BindView(R.id.face_login)
+    TextView faceLogin;
     @BindView(R.id.user_account_login)
     EditText userAccount;
     @BindView(R.id.user_password_login)
@@ -34,11 +39,12 @@ public class UserLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bmob.initialize(this, "e7edc6aee5407505ad8a1b08cddbd4d8");
+        SuperID.initFaceSDK(this);
         setContentView(R.layout.user_login);
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.user_login, R.id.add_new_user})
+    @OnClick({R.id.user_login, R.id.add_new_user,R.id.face_login})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.user_login:
@@ -47,6 +53,9 @@ public class UserLoginActivity extends AppCompatActivity {
             case R.id.add_new_user:
                 Intent intent = new Intent(this, UserRegisterActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.face_login:
+                SuperID.faceLogin(this);
                 break;
         }
     }
@@ -89,6 +98,21 @@ public class UserLoginActivity extends AppCompatActivity {
             });
         } else {
             Toast.makeText(UserLoginActivity.this, "账号或密码不能为空！", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (resultCode) {
+            case SDKConfig.LOGINSUCCESS:
+                Toast.makeText(UserLoginActivity.this, "刷脸登录成功!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                Toast.makeText(UserLoginActivity.this, "刷脸登录失败,请尝试用账号密码登陆!", Toast.LENGTH_SHORT).show();
+                break;
         }
     }
 }
