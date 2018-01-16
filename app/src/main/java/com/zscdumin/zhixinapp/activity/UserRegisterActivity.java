@@ -54,6 +54,7 @@ public class UserRegisterActivity extends AppCompatActivity {
                     Toast.makeText(UserRegisterActivity.this, "恭喜您,注册成功！", Toast.LENGTH_SHORT).show();
                     Intent intent=new Intent(UserRegisterActivity.this,UserLoginActivity.class);
                     startActivity(intent);
+                    finish();
                 }
 
                 @Override
@@ -66,5 +67,4 @@ public class UserRegisterActivity extends AppCompatActivity {
             Toast.makeText(UserRegisterActivity.this, "账号或密码不能为空！", Toast.LENGTH_SHORT).show();
         }
     }
-
 }

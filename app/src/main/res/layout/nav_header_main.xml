@@ -8,30 +8,30 @@
               android:padding="16dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/icon"
-        />
+        android:src="@drawable/icon"/>
 
 
     <TextView
+        android:id="@+id/user_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingTop="30dp"
-        android:text="电子科技大学中山学院作品"
+        android:paddingTop="15dp"
         android:textColor="#f9e003"
-        android:textSize="12sp"
+        android:textSize="15sp"
         />
 
     <TextView
+        android:id="@+id/user_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingTop="10dp"
-        android:text="14软件B班_杜敏@版权所有"
         android:textColor="#f9e003"
-        android:textSize="12sp"/>
+        android:textSize="15sp"/>
 
 </LinearLayout>

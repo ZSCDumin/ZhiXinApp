@@ -11,9 +11,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.isnc.facesdk.SuperID;
+import com.isnc.facesdk.common.Cache;
 import com.isnc.facesdk.common.SDKConfig;
+import com.isnc.facesdk.common.SuperIDUtils;
 import com.zscdumin.zhixinapp.R;
 import com.zscdumin.zhixinapp.bean.Person;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -44,7 +49,7 @@ public class UserLoginActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.user_login, R.id.add_new_user,R.id.face_login})
+    @OnClick({R.id.user_login, R.id.add_new_user, R.id.face_login})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.user_login:
@@ -106,9 +111,27 @@ public class UserLoginActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         switch (resultCode) {
             case SDKConfig.LOGINSUCCESS:
-                Toast.makeText(UserLoginActivity.this, "刷脸登录成功!", Toast.LENGTH_SHORT).show();
+                // 使用人脸登录后获取的一登用户信息
+                String user_info = Cache.getCached(UserLoginActivity.this, SDKConfig.KEY_APPINFO);
+                String phone_num = "";
+                String user_icon = "";
+                String user_name = "";
+                try {
+                    JSONObject obj = new JSONObject(user_info);
+                    phone_num = obj.getString(SDKConfig.KEY_PHONENUM);
+                    user_icon = obj.getString(SDKConfig.KEY_AVATAR);
+                    user_name = SuperIDUtils.judgeChina(obj.getString(SDKConfig.KEY_NAME), 10);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
+                Bundle bundle=new Bundle();
+                bundle.putString("user_name", user_name);
+                bundle.putString("user_icon", user_icon);
+                bundle.putString("phone_num", phone_num);
+                intent.putExtras(bundle);
                 startActivity(intent);
+                finish();
                 break;
             default:
                 Toast.makeText(UserLoginActivity.this, "刷脸登录失败,请尝试用账号密码登陆!", Toast.LENGTH_SHORT).show();

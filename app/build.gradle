@@ -26,6 +26,8 @@ android {
 }
 
 dependencies {
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
     implementation 'com.isnc.facesdk:superid-sdk:1.6.9'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'cn.bmob.android:bmob-sdk:3.4.6'

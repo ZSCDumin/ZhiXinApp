@@ -1,7 +1,6 @@
 package com.zscdumin.zhixinapp.activity;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -27,6 +26,7 @@ import com.zscdumin.zhixinapp.R;
 import com.zscdumin.zhixinapp.bean.TalkBean;
 import com.zscdumin.zhixinapp.bean.VoiceBean;
 import com.zscdumin.zhixinapp.message.GetHttpMessage;
+
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -230,7 +230,5 @@ public class TulingActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
     }
 }
