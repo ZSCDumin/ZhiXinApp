@@ -29,7 +29,7 @@
 
 # 5. 应用下载地址
 
-> https://www.pgyer.com/oL3J
+> https://www.pgyer.com/zhixinapp
 
 # 6. 测试试用账号
 
