@@ -51,6 +51,12 @@ public class UserLoginActivity extends AppCompatActivity {
         setContentView(R.layout.user_login);
         ButterKnife.bind(this);
 
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET) !=
+                PackageManager
+                        .PERMISSION_GRANTED) {
+            //申请网络权限
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET}, 1);//最后一个参数表示请求码
+        }
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !=
                 PackageManager
                         .PERMISSION_GRANTED) {
