@@ -1,9 +1,13 @@
 package com.zscdumin.zhixinapp.activity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +56,14 @@ public class TulingActivity extends AppCompatActivity {
         myAdapter = new MyAdapter();
         answer.setAdapter(myAdapter);
         SpeechUtility.createUtility(this, SpeechConstant.APPID + "=56adade1");
-        compose("主人您好,我是图灵机器人!");
+        compose("欢迎使用图灵机器人!");
+        //申请录音权限
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) !=
+                PackageManager
+                        .PERMISSION_GRANTED) {
+            //申请权限
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 1);//最后一个参数表示请求码
+        }
     }
 
 

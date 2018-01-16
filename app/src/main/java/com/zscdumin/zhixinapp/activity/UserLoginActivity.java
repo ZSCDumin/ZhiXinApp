@@ -3,7 +3,6 @@ package com.zscdumin.zhixinapp.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -79,12 +78,13 @@ public class UserLoginActivity extends AppCompatActivity {
                     for (int i = 0; i < list.size(); i++) {
                         String account = list.get(i).getUserAccount();
                         String password = list.get(i).getUserPassword();
-                        Log.i("登录", account + " " + password);
-                        Log.i("登录", user_account + " " + user_password);
                         if (account.equals(user_account) && password.equals(user_password)) {
                             flag = 1;
                             Toast.makeText(UserLoginActivity.this, "登录成功！", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
+                            Bundle bundle=new Bundle();
+                            bundle.putString("login_type", "with_account");
+                            intent.putExtras(bundle);
                             startActivity(intent);
                             break;
                         }
@@ -126,6 +126,7 @@ public class UserLoginActivity extends AppCompatActivity {
                 }
                 Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
                 Bundle bundle=new Bundle();
+                bundle.putString("login_type", "with_face");
                 bundle.putString("user_name", user_name);
                 bundle.putString("user_icon", user_icon);
                 bundle.putString("phone_num", phone_num);

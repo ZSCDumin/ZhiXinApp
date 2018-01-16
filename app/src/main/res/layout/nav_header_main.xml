@@ -3,7 +3,7 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="#00796B"
+              android:background="#00412f"
               android:orientation="vertical"
               android:padding="16dp">
 
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingTop="15dp"
-        android:textColor="#f9e003"
+        android:textColor="#ffab00"
         android:textSize="15sp"
         />
 
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingTop="10dp"
-        android:textColor="#f9e003"
+        android:textColor="#ff5722"
         android:textSize="15sp"/>
 
 </LinearLayout>

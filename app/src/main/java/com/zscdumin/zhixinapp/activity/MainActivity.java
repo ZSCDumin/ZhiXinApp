@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zscdumin.zhixinapp.R;
 import com.zscdumin.zhixinapp.fragment.MeFragment;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     };
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,21 +76,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         transaction.add(R.id.fl_content, newsListFragment, "newsListFragment").commit();
         nav_layout.setNavigationItemSelectedListener(this);
 
+        View view = nav_layout.inflateHeaderView(R.layout.nav_header_main);
+        user_name_tv = view.findViewById(R.id.user_name);
+        user_phone_tv = view.findViewById(R.id.user_phone);
+        user_icon_iv = view.findViewById(R.id.user_icon);
+
         /**
          * 获取用户数据
          */
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        String user_name = bundle.getString("user_name");
-        String user_icon_url = bundle.getString("user_icon");
-        String user_phone = bundle.getString("phone_num");
-        View view = nav_layout.inflateHeaderView(R.layout.nav_header_main);
-        user_name_tv = view.findViewById(R.id.user_name);
-        user_phone_tv = view.findViewById(R.id.user_phone);
-        user_icon_iv = view.findViewById(R.id.user_icon);
-        user_name_tv.setText("当前用户: " + user_name);
-        user_phone_tv.setText("用户手机: " + user_phone);
-        setBitmapByUrl(user_icon_url);
+        String login_type = bundle.getString("login_type");
+        if (login_type.equals("with_face")) {
+            String user_name = bundle.getString("user_name");
+            String user_icon_url = bundle.getString("user_icon");
+            String user_phone = bundle.getString("phone_num");
+            user_name_tv.setText("用户:【" + user_name + "】");
+            user_phone_tv.setText("手机:【" + user_phone + "】");
+            setBitmapByUrl(user_icon_url);
+        }
+        else if (login_type.equals("with_account")){
+            user_name_tv.setText("用户:【杜敏】");
+            user_phone_tv.setText("手机:【18979429542】");
+        }
     }
 
     public void setBitmapByUrl(final String url) {
@@ -187,6 +197,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(MainActivity.this, "向右滑弹出抽屉菜单!", Toast.LENGTH_LONG).show();
                         }
                     }).show();
         }
@@ -197,6 +208,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onDestroy() {
         super.onDestroy();
         System.exit(0);
-
     }
 }
