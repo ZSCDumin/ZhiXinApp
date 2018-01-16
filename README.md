@@ -21,10 +21,11 @@
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/6.jpg)
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/7.jpg)
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/8.jpg)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/9.jpg)
 
 # 4. 觉得赞就打赏我吧
 
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/9.jpg)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/10.jpg)
 
 # 5. 应用下载地址
 
