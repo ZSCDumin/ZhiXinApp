@@ -29,7 +29,7 @@
 
 # 5. 应用下载地址
 
-> https://raw.githubusercontent.com/ZSCDumin/ZhiXinApp/master/app/release/app-release.apk
+> https://www.pgyer.com/oL3J
 
 # 6. 测试试用账号
 
