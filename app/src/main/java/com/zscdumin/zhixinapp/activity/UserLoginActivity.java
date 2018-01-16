@@ -1,7 +1,11 @@
 package com.zscdumin.zhixinapp.activity;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -46,6 +50,13 @@ public class UserLoginActivity extends AppCompatActivity {
         SuperID.initFaceSDK(this);
         setContentView(R.layout.user_login);
         ButterKnife.bind(this);
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !=
+                PackageManager
+                        .PERMISSION_GRANTED) {
+            //申请照相机权限
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);//最后一个参数表示请求码
+        }
     }
 
     @OnClick({R.id.user_login, R.id.add_new_user, R.id.face_login})
@@ -82,7 +93,7 @@ public class UserLoginActivity extends AppCompatActivity {
                             flag = 1;
                             Toast.makeText(UserLoginActivity.this, "登录成功！", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
-                            Bundle bundle=new Bundle();
+                            Bundle bundle = new Bundle();
                             bundle.putString("login_type", "with_account");
                             intent.putExtras(bundle);
                             startActivity(intent);
@@ -125,7 +136,7 @@ public class UserLoginActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
-                Bundle bundle=new Bundle();
+                Bundle bundle = new Bundle();
                 bundle.putString("login_type", "with_face");
                 bundle.putString("user_name", user_name);
                 bundle.putString("user_icon", user_icon);
