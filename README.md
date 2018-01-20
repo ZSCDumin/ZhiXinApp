@@ -12,7 +12,7 @@
 
 
 # 3. 应用相关截图
-
+<img width="150" height="150" src="https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/1.png"/>
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/1.png)
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/2.png)
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/3.png)
