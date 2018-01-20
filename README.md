@@ -10,10 +10,17 @@
 >+ 天气（仿造欧酷天气）
 >+ 图灵机器人 (基于图灵机器人和讯飞语音识别技术）
 
+# 3. 应用下载地址
 
-# 3. 应用相关截图
+> https://www.pgyer.com/zhixinapp
 
-<img width="720" height="1028" src="https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/1.png"/>
+# 4. 测试试用账号
+
+>+  账号: 18979429542
+>+  密码: 123
+
+# 5. 应用相关截图
+
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/1.png)
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/2.png)
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/3.png)
@@ -30,15 +37,7 @@
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/14.png)
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/15.png)
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/16.png)
-# 4. 觉得赞就打赏我吧
+# 6. 觉得赞就打赏我吧
 
 ![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/17.png)
 
-# 5. 应用下载地址
-
-> https://www.pgyer.com/zhixinapp
-
-# 6. 测试试用账号
-
->+  账号: 18979429542
->+  密码: 123
