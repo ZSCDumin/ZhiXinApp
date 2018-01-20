@@ -20,6 +20,7 @@ allprojects {
         google()
         jcenter()
         maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
+        maven { url "https://raw.githubusercontent.com/Pgyer/mvn_repo_pgyer/master" }
     }
 }
 

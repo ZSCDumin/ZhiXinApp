@@ -4,6 +4,7 @@
     <string name="weather">欧酷天气</string>
     <string name="tuling">图灵机器人</string>
     <string name="aboutme">作者信息</string>
+    <string name="version_update">版本更新</string>
     <string name="action_settings">设置</string>
     <string name="service_on">ON</string>
     <string name="service_off">OFF</string>

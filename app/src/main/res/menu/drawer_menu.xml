@@ -22,5 +22,9 @@
             android:id="@+id/nav_me"
             android:icon="@drawable/me"
             android:title="@string/aboutme" />
+        <item
+            android:id="@+id/nav_version_update"
+            android:icon="@drawable/update"
+            android:title="@string/version_update" />
     </group>
 </menu>

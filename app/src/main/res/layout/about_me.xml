@@ -190,11 +190,6 @@
                         android:textColor="@color/s_color_font_main"
                         android:textSize="@dimen/s_size_font_text"/>
                 </RelativeLayout>
-
-                <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/s_color_border"/>
             </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>

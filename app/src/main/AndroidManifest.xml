@@ -41,13 +41,16 @@
             android:value="hpsOsyygaYNWKUazSIwAdDW31oqyt9HG"/>
 
         <activity
-            android:name=".activity.UserLoginActivity"
+            android:name=".activity.WelcomeActivity"
             android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".activity.WelcomeGuideActivity"/>
+        <activity android:name=".activity.UserLoginActivity"/>
         <activity android:name=".activity.NewsActivity"/>
         <activity android:name=".activity.MainActivity"/>
         <activity android:name=".activity.WeatherMainActivity"/>
@@ -103,7 +106,10 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar">
         </activity>
-
+        <meta-data
+            android:name="PGYER_APPID"
+            android:value="dbe34fedbd7c195aedbfbf1ad0e1836e" >  <!--由蒲公英提供，稍后创建自己的App id后更新掉-->
+        </meta-data>
         <meta-data
             android:name="SUPERID_APPKEY"
             android:value="89c01a7aa5d9b1def00fe656"/>
@@ -119,5 +125,7 @@
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote"/>
+
     </application>
+
 </manifest>

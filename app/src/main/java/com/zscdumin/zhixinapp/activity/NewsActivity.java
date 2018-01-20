@@ -36,13 +36,11 @@ public class NewsActivity extends Activity {
         wv_news.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
 
         WebSettings settings = wv_news.getSettings();
-        //支持双击缩放
-        settings.setUseWideViewPort(true);
+
         //支持javascript
         settings.setJavaScriptEnabled(true);
         //支持缩放
-        settings.setBuiltInZoomControls(true);
-
+        settings.setSupportZoom(true);
 
         wv_news.setWebViewClient(new WebViewClient() {
 

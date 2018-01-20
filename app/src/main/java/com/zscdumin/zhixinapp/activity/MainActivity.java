@@ -21,6 +21,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.pgyersdk.crash.PgyCrashManager;
+import com.pgyersdk.javabean.AppBean;
+import com.pgyersdk.update.PgyUpdateManager;
+import com.pgyersdk.update.UpdateManagerListener;
 import com.zscdumin.zhixinapp.R;
 import com.zscdumin.zhixinapp.fragment.MeFragment;
 import com.zscdumin.zhixinapp.fragment.ParentFragment;
@@ -70,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         setContentView(R.layout.fragment_main);
         ButterKnife.bind(this);
+        PgyUpdateManager.register(this);
         transaction = getSupportFragmentManager().beginTransaction();
         //初始是新闻页面
         newsListFragment = new ParentFragment();
@@ -178,6 +183,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent = new Intent(this, WeatherMainActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.nav_version_update:
+                checkAppUpdate();
+                break;
         }
         return true;
     }
@@ -207,6 +215,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        PgyCrashManager.unregister();
         System.exit(0);
+    }
+    //版本更新代码
+    private void checkAppUpdate() {
+        PgyUpdateManager.register(MainActivity.this,
+                new UpdateManagerListener() {
+                    @Override
+                    public void onUpdateAvailable(final String result) {
+                        // 将新版本信息封装到AppBean中
+                        final AppBean appBean = getAppBeanFromString(result);
+                        new AlertDialog.Builder(MainActivity.this)
+
+                                .setIcon(R.drawable.update_bg)
+                                .setTitle("发现新版本,立即更新?")
+                                .setMessage(appBean.getReleaseNote())
+                                .setNegativeButton(
+                                        "确定",
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(
+                                                    DialogInterface dialog,
+                                                    int which) {
+                                                startDownloadTask(
+                                                        MainActivity.this,
+                                                        appBean.getDownloadURL());
+
+                                            }
+                                        }).show();
+                    }
+
+                    @Override
+                    public void onNoUpdateAvailable() {
+                        Toast.makeText(MainActivity.this,"当前应用已经是最新版了！",Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
