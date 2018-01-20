@@ -13,19 +13,25 @@
 
 # 3. 应用相关截图
 
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/1.jpg)
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/2.jpg)
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/3.jpg)
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/4.jpg)
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/5.jpg)
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/6.jpg)
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/7.jpg)
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/8.jpg)
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/9.jpg)
-
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/1.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/2.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/3.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/4.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/5.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/6.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/7.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/8.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/9.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/10.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/11.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/12.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/13.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/14.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/15.png)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/16.png)
 # 4. 觉得赞就打赏我吧
 
-![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/10.jpg)
+![image](https://github.com/ZSCDumin/ZhiXinApp/raw/master/screenshoot/17.png)
 
 # 5. 应用下载地址
 
