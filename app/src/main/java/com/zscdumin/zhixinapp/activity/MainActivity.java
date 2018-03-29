@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.fragment_main);
         ButterKnife.bind(this);
         PgyUpdateManager.register(this);
+
         transaction = getSupportFragmentManager().beginTransaction();
         //初始是新闻页面
         newsListFragment = new ParentFragment();

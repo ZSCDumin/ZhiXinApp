@@ -46,10 +46,13 @@ public class UserLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bmob.initialize(this, "e7edc6aee5407505ad8a1b08cddbd4d8");
         SuperID.initFaceSDK(this);
+        //SuperID.setDebugMode(true);
+        Bmob.initialize(this, "e7edc6aee5407505ad8a1b08cddbd4d8");
+
         setContentView(R.layout.user_login);
         ButterKnife.bind(this);
+
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !=
                 PackageManager

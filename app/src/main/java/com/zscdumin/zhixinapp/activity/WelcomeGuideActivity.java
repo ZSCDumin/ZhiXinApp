@@ -27,7 +27,7 @@ public class WelcomeGuideActivity extends Activity implements View.OnClickListen
     private Button startBtn;
 
     // 引导页图片资源
-    private static final int[] pics = { R.layout.guide_view1,
+    private static final int[] pics = {R.layout.guide_view1,
             R.layout.guide_view2, R.layout.guide_view3};
 
     // 底部小点图片
@@ -39,6 +39,7 @@ public class WelcomeGuideActivity extends Activity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //SuperID.initFaceSDK(this);
         setContentView(R.layout.activity_guide);
 
         views = new ArrayList<View>();
