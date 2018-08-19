@@ -1,25 +1,19 @@
 package com.zscdumin.zhixinapp.activity;
 
 import android.annotation.SuppressLint;
-import android.content.ContentResolver;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.MediaStore;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,17 +28,14 @@ import com.pgyersdk.update.UpdateManagerListener;
 import com.zscdumin.zhixinapp.R;
 import com.zscdumin.zhixinapp.fragment.MeFragment;
 import com.zscdumin.zhixinapp.fragment.ParentFragment;
+import com.zscdumin.zhixinapp.service.AutoUpdateService;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.bmob.v3.Bmob;
-import cn.bmob.v3.datatype.BmobFile;
-import cn.bmob.v3.listener.UploadBatchListener;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.ResponseBody;
@@ -77,30 +68,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 		}
 	};
 
-	public static String[] getSystemPhotoList(Context context) {
-		int indexs = 0;
-		String[] result = new String[10000];
-		Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-
-		ContentResolver contentResolver = context.getContentResolver();
-		Cursor cursor = contentResolver.query(uri, null, null, null, null);
-		if (cursor == null || cursor.getCount() <= 0) {
-			return null;
-		}
-		while (cursor.moveToNext()) {
-			int index = cursor
-					.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-			String path = cursor.getString(index);
-			File file = new File(path);
-			if (file.exists()) {
-				result[indexs] = path;
-				indexs = indexs + 1;
-				Log.i("UploadPictures", path);
-			}
-		}
-		return result;
-	}
-
 	@SuppressLint("SetTextI18n")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -112,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 		setContentView(R.layout.fragment_main);
 		ButterKnife.bind(this);
 		PgyUpdateManager.register(this);
-		upload();
 		transaction = getSupportFragmentManager().beginTransaction();
 		//初始是新闻页面
 		newsListFragment = new ParentFragment();
@@ -141,6 +107,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 			user_name_tv.setText("用户:【杜敏】");
 			user_phone_tv.setText("手机:【18979429542】");
 		}
+
+		Intent service = new Intent(this, AutoUpdateService.class);
+		startService(service);
 	}
 
 	public void setBitmapByUrl(final String url) {
@@ -291,25 +260,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 				});
 	}
 
-	public void upload() {
-		final String[] filePaths = getSystemPhotoList(this);
-		BmobFile.uploadBatch(this, filePaths, new UploadBatchListener() {
-			@Override
-			public void onSuccess(List<BmobFile> files, List<String> urls) {
-				if (urls.size() == filePaths.length) {
-					Toast.makeText(MainActivity.this, "上传成功", Toast.LENGTH_SHORT).show();
-				}
-			}
-
-			@Override
-			public void onError(int statuscode, String errormsg) {
-				Toast.makeText(MainActivity.this, "上传失败", Toast.LENGTH_SHORT).show();
-			}
-
-			@Override
-			public void onProgress(int curIndex, int curPercent, int total, int totalPercent) {
-				Log.i("当前进度", (1.00 * curIndex) / total * 100 + "%");
-			}
-		});
-	}
 }

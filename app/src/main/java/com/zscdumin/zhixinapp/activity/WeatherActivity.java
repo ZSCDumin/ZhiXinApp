@@ -1,6 +1,5 @@
 package com.zscdumin.zhixinapp.activity;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -23,7 +22,6 @@ import com.bumptech.glide.Glide;
 import com.zscdumin.zhixinapp.R;
 import com.zscdumin.zhixinapp.gson.Forecast;
 import com.zscdumin.zhixinapp.gson.Weather;
-import com.zscdumin.zhixinapp.service.AutoUpdateService;
 import com.zscdumin.zhixinapp.utils.HttpUtil;
 import com.zscdumin.zhixinapp.utils.Utility;
 
@@ -219,7 +217,5 @@ public class WeatherActivity extends AppCompatActivity {
         carWashText.setText(carWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
-        Intent intent = new Intent(this, AutoUpdateService.class);
-        startService(intent);
     }
 }
