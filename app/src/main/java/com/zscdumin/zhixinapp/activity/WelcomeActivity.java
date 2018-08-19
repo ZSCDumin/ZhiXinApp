@@ -23,6 +23,7 @@ import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
+
 public class WelcomeActivity extends Activity {
 
     @BindView(R.id.iv_entry)
