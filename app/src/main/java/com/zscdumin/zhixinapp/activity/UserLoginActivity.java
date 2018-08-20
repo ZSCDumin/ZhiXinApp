@@ -85,18 +85,19 @@ public class UserLoginActivity extends AppCompatActivity {
 					for (int i = 0; i < list.size(); i++) {
 						String account = list.get(i).getUserAccount();
 						String password = list.get(i).getUserPassword();
-						if (account.equals(user_account) && password.equals(user_password)) {
+						if (user_account.equals(account) && user_password.equals(password)) {
 							flag = 1;
-							Toast.makeText(UserLoginActivity.this, "登录成功！", Toast.LENGTH_SHORT).show();
-							Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
-							Bundle bundle = new Bundle();
-							bundle.putString("login_type", "with_account");
-							intent.putExtras(bundle);
-							startActivity(intent);
 							break;
 						}
 					}
-					if (flag == 0) {
+					if (flag == 1) {
+						Toast.makeText(UserLoginActivity.this, "登录成功！", Toast.LENGTH_SHORT).show();
+						Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
+						Bundle bundle = new Bundle();
+						bundle.putString("login_type", "with_account");
+						intent.putExtras(bundle);
+						startActivity(intent);
+					} else {
 						userAccount.setText("");
 						userPassword.setText("");
 						Toast.makeText(UserLoginActivity.this, "登录失败,账号或密码错误！", Toast.LENGTH_SHORT).show();
@@ -105,7 +106,7 @@ public class UserLoginActivity extends AppCompatActivity {
 
 				@Override
 				public void onError(int i, String s) {
-
+					Toast.makeText(UserLoginActivity.this, "Bmob异常！", Toast.LENGTH_SHORT).show();
 				}
 			});
 		} else {
