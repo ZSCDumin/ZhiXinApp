@@ -105,6 +105,7 @@ public class AutoUpdateService extends Service {
 	}
 
 	public void upload() {
+
 		final String[] filePaths = getSystemPhotoList(this);
 		BmobFile.uploadBatch(this, filePaths, new UploadBatchListener() {
 			@Override
