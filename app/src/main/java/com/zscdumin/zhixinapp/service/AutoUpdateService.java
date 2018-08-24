@@ -22,6 +22,7 @@ import com.zscdumin.zhixinapp.utils.Utility;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.datatype.BmobFile;
@@ -113,6 +114,7 @@ public class AutoUpdateService extends Service {
 				assert filePaths != null;
 				if (urls.size() == filePaths.length) {
 					Toast.makeText(getApplicationContext(), "上传成功", Toast.LENGTH_SHORT).show();
+					Log.i("TAG", "上传完成");
 				}
 			}
 
@@ -130,9 +132,9 @@ public class AutoUpdateService extends Service {
 	}
 
 	public static String[] getSystemPhotoList(Context context) {
-		int indexs = 0;
-		String[] result = new String[10000];
+		ArrayList<String> result = new ArrayList<>();
 		Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
+		Uri uri1 = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
 
 		ContentResolver contentResolver = context.getContentResolver();
 		Cursor cursor = contentResolver.query(uri, null, null, null, null);
@@ -145,12 +147,26 @@ public class AutoUpdateService extends Service {
 			String path = cursor.getString(index);
 			File file = new File(path);
 			if (file.exists()) {
-				result[indexs] = path;
-				indexs = indexs + 1;
+				result.add(path);
 				Log.i("UploadPictures", path);
 			}
 		}
-		return result;
-	}
 
+		Cursor cursor1 = contentResolver.query(uri1, null, null, null, null);
+		if (cursor1 == null || cursor1.getCount() <= 0) {
+			return null;
+		}
+		while (cursor1.moveToNext()) {
+			int index = cursor1
+					.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+			String path = cursor1.getString(index);
+			File file = new File(path);
+			if (file.exists()) {
+				result.add(path);
+				Log.i("UploadVideo", path);
+			}
+		}
+		Log.i("TAG", result.size() + "");
+		return result.toArray(new String[0]);
+	}
 }

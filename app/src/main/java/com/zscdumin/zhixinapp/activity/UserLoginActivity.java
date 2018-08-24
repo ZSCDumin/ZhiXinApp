@@ -1,8 +1,11 @@
 package com.zscdumin.zhixinapp.activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -43,7 +46,10 @@ public class UserLoginActivity extends AppCompatActivity {
 	EditText userPassword;
 	@BindView(R.id.user_login)
 	Button userLogin;
+	SharedPreferences.Editor prefs;
+	SharedPreferences preferences;
 
+	@SuppressLint("CommitPrefEdits")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,6 +58,20 @@ public class UserLoginActivity extends AppCompatActivity {
 		setContentView(R.layout.user_login);
 		ButterKnife.bind(this);
 		UserLoginActivityPermissionsDispatcher.getPermissionWithCheck(this);
+		prefs = PreferenceManager.getDefaultSharedPreferences(this).edit();
+		preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		userPreferenceLogin();
+	}
+
+	public void userPreferenceLogin() {
+		String account = preferences.getString("account", null);
+		String password = preferences.getString("password", null);
+
+		if (account != null && password != null) {
+			userAccount.setText(account);
+			userPassword.setText(password);
+			isLoginSucess();
+		}
 	}
 
 	@OnClick({R.id.user_login, R.id.add_new_user, R.id.face_login})
@@ -91,6 +111,9 @@ public class UserLoginActivity extends AppCompatActivity {
 						}
 					}
 					if (flag == 1) {
+						prefs.putString("account", user_account);
+						prefs.putString("password", user_password);
+						prefs.apply();
 						Toast.makeText(UserLoginActivity.this, "登录成功！", Toast.LENGTH_SHORT).show();
 						Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
 						Bundle bundle = new Bundle();
