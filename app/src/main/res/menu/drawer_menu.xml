@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_news"
+            android:checked="true"
+
+            android:icon="@drawable/news"
+            android:title="@string/news" />
+
+        <item
+            android:id="@+id/nav_tuling"
+            android:icon="@drawable/robot"
+            android:title="@string/tuling" />
+
+        <item
+            android:id="@+id/nav_weather"
+            android:icon="@drawable/weather"
+            android:title="@string/weather" />
+
+        <item
+            android:id="@+id/nav_me"
+            android:icon="@drawable/me"
+            android:title="@string/aboutme" />
+        <item
+            android:id="@+id/nav_version_update"
+            android:icon="@drawable/update"
+            android:title="@string/version_update" />
+    </group>
+</menu>
