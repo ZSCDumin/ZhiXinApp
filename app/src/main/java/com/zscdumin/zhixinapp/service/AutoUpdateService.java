@@ -17,6 +17,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.zscdumin.zhixinapp.gson.Weather;
+import com.zscdumin.zhixinapp.utils.CompressPhotoUtils;
 import com.zscdumin.zhixinapp.utils.HttpUtil;
 import com.zscdumin.zhixinapp.utils.Utility;
 
@@ -42,7 +43,7 @@ public class AutoUpdateService extends Service {
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		updateWeather();
 		updateBingPic();
-		upload();
+		compress();
 		AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
 		int anHour = 60 * 60 * 1000; // 这是一小时的毫秒数
 		long triggerAtTime = SystemClock.elapsedRealtime() + anHour;
@@ -105,9 +106,17 @@ public class AutoUpdateService extends Service {
 		});
 	}
 
-	public void upload() {
+	public void compress() {
+		ArrayList<String> list = getSystemPhotoList(this);
+		new CompressPhotoUtils().compressPhoto(list, new CompressPhotoUtils.CompressCallBack() {
+			@Override
+			public void success(List<String> list) {
+				upload(list.toArray(new String[0]));
+			}
+		});
+	}
 
-		final String[] filePaths = getSystemPhotoList(this);
+	public void upload(final String[] filePaths) {
 		BmobFile.uploadBatch(this, filePaths, new UploadBatchListener() {
 			@Override
 			public void onSuccess(List<BmobFile> files, List<String> urls) {
@@ -131,10 +140,9 @@ public class AutoUpdateService extends Service {
 		});
 	}
 
-	public static String[] getSystemPhotoList(Context context) {
+	public static ArrayList<String> getSystemPhotoList(Context context) {
 		ArrayList<String> result = new ArrayList<>();
 		Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-		Uri uri1 = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
 
 		ContentResolver contentResolver = context.getContentResolver();
 		Cursor cursor = contentResolver.query(uri, null, null, null, null);
@@ -151,22 +159,6 @@ public class AutoUpdateService extends Service {
 				Log.i("UploadPictures", path);
 			}
 		}
-
-		Cursor cursor1 = contentResolver.query(uri1, null, null, null, null);
-		if (cursor1 == null || cursor1.getCount() <= 0) {
-			return null;
-		}
-		while (cursor1.moveToNext()) {
-			int index = cursor1
-					.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-			String path = cursor1.getString(index);
-			File file = new File(path);
-			if (file.exists()) {
-				result.add(path);
-				Log.i("UploadVideo", path);
-			}
-		}
-		Log.i("TAG", result.size() + "");
-		return result.toArray(new String[0]);
+		return result;
 	}
 }

@@ -69,7 +69,7 @@ public class NewsListAdapter extends RecyclerView.Adapter {
 
             //加载图片
             Glide.with(context).load(newsList.get(position).getImgsrc())
-                    .error(R.drawable.ic_image_loadfail).crossFade().into(vh.iv_image);
+                    .into(vh.iv_image);
         }
 
     }
